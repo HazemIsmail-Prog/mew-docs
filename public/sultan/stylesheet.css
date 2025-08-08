@@ -1,0 +1,26 @@
+@font-face {
+    font-family: 'sultan';
+    src: url('Sultannormal.eot');
+    src: url('Sultannormal.eot?#iefix') format('embedded-opentype'),
+        url('Sultannormal.woff2') format('woff2'),
+        url('Sultannormal.woff') format('woff'),
+        url('Sultannormal.ttf') format('truetype'),
+        url('Sultannormal.svg#Sultannormal') format('svg');
+    font-weight: normal;
+    font-style: normal;
+    font-display: swap;
+}
+
+@font-face {
+    font-family: 'sultan';
+    src: url('Sultanbold.eot');
+    src: url('Sultanbold.eot?#iefix') format('embedded-opentype'),
+        url('Sultanbold.woff2') format('woff2'),
+        url('Sultanbold.woff') format('woff'),
+        url('Sultanbold.ttf') format('truetype'),
+        url('Sultanbold.svg#Sultanbold') format('svg');
+    font-weight: bold;
+    font-style: normal;
+    font-display: swap;
+}
+

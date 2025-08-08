@@ -1,0 +1,227 @@
+@import 'tailwindcss';
+@import '../../vendor/livewire/flux/dist/flux.css';
+/* @import '../../public/sultan/stylesheet.css'; */
+
+@source '../views';
+@source '../../vendor/laravel/framework/src/Illuminate/Pagination/resources/views/*.blade.php';
+@source '../../vendor/livewire/flux-pro/stubs/**/*.blade.php';
+@source '../../vendor/livewire/flux/stubs/**/*.blade.php';
+
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+@theme {
+    --font-sans: 'Instrument Sans', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+    --font-sultan: 'Sultan', ui-sans-serif, system-ui, sans-serif, 'Apple Color Emoji', 'Segoe UI Emoji', 'Segoe UI Symbol', 'Noto Color Emoji';
+}
+
+@theme {
+    --color-zinc-50: var(--color-gray-50);
+    --color-zinc-100: var(--color-gray-100);
+    --color-zinc-200: var(--color-gray-200);
+    --color-zinc-300: var(--color-gray-300);
+    --color-zinc-400: var(--color-gray-400);
+    --color-zinc-500: var(--color-gray-500);
+    --color-zinc-600: var(--color-gray-600);
+    --color-zinc-700: var(--color-gray-700);
+    --color-zinc-800: var(--color-gray-800);
+    --color-zinc-900: var(--color-gray-900);
+    --color-zinc-950: var(--color-gray-950);
+}
+@theme {
+    --color-accent: var(--color-teal-600);
+    --color-accent-content: var(--color-teal-600);
+    --color-accent-foreground: var(--color-white);
+}
+
+@layer theme {
+    .dark {
+        --color-accent: var(--color-teal-600);
+        --color-accent-content: var(--color-teal-400);
+        --color-accent-foreground: var(--color-white);
+    }
+}
+
+@layer base {
+
+    *,
+    ::after,
+    ::before,
+    ::backdrop,
+    ::file-selector-button {
+        border-color: var(--color-gray-200, currentColor);
+    }
+}
+
+[data-flux-field]:not(ui-radio, ui-checkbox) {
+    @apply grid gap-2;
+}
+
+[data-flux-label] {
+    @apply  !mb-0 !leading-tight;
+}
+
+input:focus[data-flux-control],
+textarea:focus[data-flux-control],
+select:focus[data-flux-control] {
+    @apply outline-hidden ring-2 ring-accent ring-offset-2 ring-offset-accent-foreground;
+}
+
+/* \[:where(&)\]:size-4 {
+    @apply size-4;
+} */
+
+
+/* ################################## My Custom Styles ################################## */
+
+
+[x-cloak] {
+    display: none !important;
+}
+
+@theme {
+    --color-danger: var(--color-red-500);
+}
+
+@layer theme {
+    .dark {
+        --color-danger: var(--color-red-400);
+    }
+}
+
+
+table{
+    @apply w-full text-sm rounded-md overflow-clip;
+
+    thead{
+        @apply bg-zinc-50 dark:bg-zinc-700 text-accent font-bold;
+        @apply border-b border-zinc-300 dark:border-zinc-600;
+
+        th{
+            @apply px-2 py-1 text-start font-medium text-accent;
+        }
+    }
+
+    tbody{
+        @apply divide-y divide-gray-200 dark:divide-gray-700;
+
+        tr{
+            @apply bg-white dark:bg-zinc-900 text-zinc-900 dark:text-white/80 dark:hover:text-white;
+
+            &.selected{
+                @apply bg-accent text-accent-foreground;
+            }
+
+            &:hover{
+                @apply bg-zinc-50 dark:bg-zinc-800 dark:hover:bg-white/[7%];
+            }
+
+            td{
+                @apply px-2 py-1;
+            }
+
+        }
+    }
+    
+}
+
+.document-card{
+    @apply rounded-md p-2 cursor-pointer w-2/3 border select-none border-accent bg-accent/5;
+
+    &.document-card-in{
+        @apply ms-auto bg-accent/5;
+    }
+
+    &.document-card-out{
+        @apply me-auto bg-accent/5;
+    }
+
+    .document-title{
+        @apply whitespace-pre-wrap font-medium;
+    }
+
+    .stakeholder-name{
+        @apply text-xs text-accent;
+    }
+
+    &.selected{
+        @apply bg-accent text-accent-foreground;
+
+        .stakeholder-name{
+            @apply text-accent-foreground;
+        }
+    }
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="number"],
+input[type="date"],
+input[type="time"],
+textarea,
+select,
+input[type="datetime-local"] {
+    @apply !py-1 h-auto;
+}
+
+.steps-container{
+    @apply border border-accent border-dashed rounded-md p-2;
+
+
+    .steps-list{
+        @apply flex flex-col gap-0.5;
+
+        .step-row{
+            @apply flex items-center gap-1 bg-accent/10 p-1 rounded-md text-xs;
+        }
+    }
+
+
+
+    .step-form{
+        @apply border-t border-dashed border-accent pt-2 mt-2 flex gap-2 items-center;
+    }
+}
+
+.attachments-container{
+    @apply border border-accent border-dashed rounded-md p-2;
+
+
+    .attachments-list{
+        @apply flex flex-col gap-0.5;
+
+        .attachment-row{
+            @apply flex items-center gap-1 bg-accent/10 p-1 rounded-md text-xs;
+        }
+    }
+
+
+
+    .attachment-form{
+        @apply border-t border-dashed border-accent pt-2 mt-2 flex gap-2 items-center;
+    }
+}
+
+.letter-card{
+    @apply rounded-md p-2 cursor-pointer w-full text-[0.65rem] border select-none border-accent bg-accent/5;
+
+    .letter-subject{
+        @apply whitespace-pre-wrap font-medium ;
+    }
+
+    .letter-receiver{
+        @apply text-accent;
+    }
+
+    &.selected{
+        @apply bg-accent text-accent-foreground;
+
+        .stakeholder-name{
+            @apply text-accent-foreground;
+        }
+        .letter-receiver{
+            @apply text-accent-foreground;
+        }
+    }
+}
