@@ -7,6 +7,7 @@ use App\Models\Letter;
 use App\Http\Resources\LetterResource;
 use function Spatie\LaravelPdf\Support\pdf;
 use Illuminate\Support\Facades\Auth;
+use Spatie\Browsershot\Browsershot;
 
 class LetterController extends Controller
 {
@@ -107,6 +108,9 @@ class LetterController extends Controller
             'headerImage' => public_path('images/header.jpeg'),
             'footerImage' => public_path('images/footer.jpeg'),
         ])
+        ->withBrowsershot(function (Browsershot $browsershot) {
+            $browsershot->setIncludePath('$PATH:/usr/bin');
+        })
         ->paperSize(210, 297, 'mm')
         ->name($file_name);
         return $pdf;
