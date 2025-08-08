@@ -110,6 +110,7 @@ class LetterController extends Controller
         ])
         ->withBrowsershot(function (Browsershot $browsershot) {
             $browsershot->setIncludePath('$PATH:/usr/bin');
+            $browsershot->ignoreHttpsErrors();
         })
         ->paperSize(210, 297, 'mm')
         ->name($file_name);
