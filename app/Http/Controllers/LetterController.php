@@ -109,7 +109,7 @@ class LetterController extends Controller
             'footerImage' => public_path('images/footer.jpeg'),
         ])
         ->withBrowsershot(function (Browsershot $browsershot) {
-            $browsershot->setNodeBinary('/home/u651499761/.nvm/versions/node/v22.14.0/bin/node')
+            $browsershot->setNodeBinary('/home/u651499761/.nvm/versions/node/v22.14.0/bin/node');
             $browsershot->setNpmBinary('/home/u651499761/.nvm/versions/node/v22.14.0/bin/npm');
         })
         ->paperSize(210, 297, 'mm')
